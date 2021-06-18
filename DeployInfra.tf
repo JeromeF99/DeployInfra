@@ -9,12 +9,6 @@ terraform {
 
 variable "env" {
   type    = string
-  default = "dev"
-}
-
-variable "app-name" {
-  type   = string
-  default = "WebApache"
 }
 
 # VPC
