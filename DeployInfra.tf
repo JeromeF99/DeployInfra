@@ -195,13 +195,13 @@ resource "aws_route_table_association" "public-1" {
 resource "aws_route_table_association" "public-2" {
   count = var.env == "prod" ? 1 : 0
   
-  subnet_id      = var.env == "prod" ? aws_subnet.subnet-public-2.id[count.index] : ""
+  subnet_id      = var.env == "prod" ? aws_subnet.subnet-public-2.id : ""
   route_table_id = aws_route_table.public.id
 }
 
 resource "aws_route_table_association" "public-3" {
   count = var.env == "prod" ? 1 : 0
   
-  subnet_id      = var.env == "prod" ? aws_sunet.subnet-public-3.id[count.index] : ""
+  subnet_id      = var.env == "prod" ? aws_sunet.subnet-public-3.id : ""
   route_table_id = aws_route_table.public.id
 }
