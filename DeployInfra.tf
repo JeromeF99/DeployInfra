@@ -195,7 +195,7 @@ resource "aws_route_table_association" "public-1" {
 resource "aws_route_table_association" "public-2" {
   count = var.env == "prod" ? 1 : 0
   
-  subnet_id      = var.env != "prod" ? "" : aws_subnet.subnet-public-2.id
+  subnet_id      = aws_subnet.subnet-public-2.*.id[count.index]
   route_table_id = aws_route_table.public.id
 }
 
